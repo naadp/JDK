@@ -104,8 +104,6 @@ static class Entry extends WeakReference<ThreadLocal<?>> {
 
 //查找下一个位置: 当越界了之后, 会从0位置开始找. 所以说, 是个环形数组. 下面的 prevIndex也一样.
 
- 
-
 ```java
 private static int nextIndex(int i, int len) {
 	return ((i + 1 < len) ? i + 1 : 0);
@@ -119,9 +117,9 @@ private static int prevIndex(int i, int len) {
 
 总结
 
-=========哈希值确定数组下标, 到指定槽位去找, 找不到的话, 就向后查找(开放地址法)开始遍历, 直到找到对应的数据为止. 
+哈希值确定数组下标, 到指定槽位去找, 找不到的话, 就向后查找(开放地址法)开始遍历, 直到找到对应的数据为止. 
 
-=========而且查找的过程中如果发现K为null的槽位, 会从那个槽位开始做一次连续段的清理工作, 也就是 expungeStaleEntry()函数. 连续段清理指的是, 如果发=========现槽位的Entry是null了, 它就会停止清理工作.
+而且查找的过程中如果发现K为null的槽位, 会从那个槽位开始做一次连续段的清理工作, 也就是 expungeStaleEntry()函数. 连续段清理指的是, 如果发现槽位的Entry是null了, 它就会停止清理工作.
 
 ```java
 private Entry getEntry(ThreadLocal<?> key) {
