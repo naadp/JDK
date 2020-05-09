@@ -148,7 +148,7 @@ private Entry getEntryAfterMiss(ThreadLocal<?> key, int i, Entry e) {
  			// 获取下一个下标接着进行判断
  			i = nextIndex(i, len);
  		}
- 		e = tab[i];
+ 		e = tab[i]; 
  	}
  	return null;
 }
@@ -257,11 +257,11 @@ private void remove(ThreadLocal<?> key) {
 }
 ```
 
-![Image](resources\Image.png)
+![Image](E:/GitHub/naadp/JDK/%E5%B9%B6%E5%8F%91/resources/Image.png)
 
 原理图-1(源自《码出高效》)
 
-![Image2](resources\Image2.png)
+![Image2](E:/GitHub/naadp/JDK/%E5%B9%B6%E5%8F%91/resources/Image2.png)
 
 原理图-2
 
