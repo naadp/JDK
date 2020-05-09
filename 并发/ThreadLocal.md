@@ -122,7 +122,7 @@ private Entry getEntry(ThreadLocal<?> key) {
 	// 通过hashcode确定下标
 	int i = key.threadLocalHashCode & (table.length - 1);
 	Entry e = table[i];
-    // 如果找到则直接返回
+    // 如果找到则直接返回 
 	if (e != null && e.get() == key) {
  		return e;
  	} else{
